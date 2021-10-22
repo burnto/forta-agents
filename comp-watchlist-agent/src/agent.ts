@@ -28,7 +28,6 @@ const handleTransaction: HandleTransaction = async (
   const txnAddresses = Object.keys(txEvent.addresses);
   txnAddresses.forEach((address) => {
     const label = watchListMap.get(address.toLowerCase());
-    console.log(address, label);
     if (label) {
       findings.push(
         Finding.fromObject({

@@ -43,7 +43,7 @@ describe("governance proposal changes agent", () => {
       const proposalCreatedTopic = keccak256(COMP_GOV_PROPOSAL_CREATED_SIG);
       const txEvent = createTransactionEvent({
         transaction: {
-          from: "0x00123",
+          from: SAMPLE_ADDR,
           to: COMP_GOVERNANCE_ADDRESS,
         } as any,
         receipt: {
@@ -62,13 +62,13 @@ describe("governance proposal changes agent", () => {
       expect(findings).toStrictEqual([
         Finding.fromObject({
           name: `Compound Governance Proposal Created`,
-          description: `Governance Proposal Created from 0x00123`,
+          description: `Governance Proposal Created from ${SAMPLE_ADDR}`,
           alertId: `COMP-GOV-PROPOSAL-CREATED-1`,
           severity: FindingSeverity.Info,
           type: FindingType.Info,
           metadata: {
             addresses: "",
-            from: "0x00123",
+            from: SAMPLE_ADDR,
           },
         }),
       ]);
